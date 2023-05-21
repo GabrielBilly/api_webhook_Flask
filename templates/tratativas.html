@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tratativas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <form action="{{ url_for('logout') }}" method="POST">
+                    <button type="submit" class="btn btn-primary">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Tratativas</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                     <th>Nome</th>
+                      <th>Email</th>
+                      <th>Status</th>
+                      <th>Valor</th>
+                      <th>Forma de Pagamento</th>
+                      <th>Parcelas</th>
+                      <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for webhook in webhooks %}
+                    <tr>
+                    <td>{{ webhook.nome }}</td>
+                    <td>{{ webhook.email }}</td>
+                    <td>{{ webhook.status }}</td>
+                    <td>{{ webhook.valor }}</td>
+                    <td>{{ webhook.forma_pagamento }}</td>
+                    <td>{{ webhook.parcelas }}</td>
+                    <td>{{ webhook.acao }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
