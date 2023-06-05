@@ -1,22 +1,24 @@
 # Integração API com Webhook
 
 
-## Bibliotecas Utilizadas
+### Libraries Used:
 
-import os
-import requests
-from flask import Flask, request, render_template, flash, redirect, url_for, jsonify
-from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_migrate import Migrate
-from flask_login import LoginManager, UserMixin, login_user, login_required, current_user, logout_user
+    import os
+    import requests
+    from flask import Flask, request, render_template, flash, redirect, url_for, jsonify
+    from flask_sqlalchemy import SQLAlchemy
+    from werkzeug.security import generate_password_hash, check_password_hash
+    from flask_migrate import Migrate
+    from flask_login import LoginManager, UserMixin, login_user, login_required, current_user, logout_user
 
 
-## Objetivo do Projeto
+### Project's goal:
 
-O sistema utiliza o framework Flask em Python para criar uma aplicação web. Ele possui as seguintes funcionalidades:
-Registro e autenticação de usuários: O sistema permite que os usuários se cadastrem e façam login usando um endereço de e-mail e senha. O registro de novos usuários é validado por um token de acesso.
-Página protegida: Existe uma página protegida que só pode ser acessada por usuários autenticados. Essa página exibe as tratativas (ações) realizadas com base nos webhooks recebidos.
-Recebimento de webhooks: O sistema possui um endpoint ("/webhook") que aceita requisições POST contendo webhooks em formato JSON. Os webhooks contêm informações como nome, e-mail, status, valor, forma de pagamento e parcelas. Os webhooks são processados e salvos no banco de dados.
-Tratamento de webhooks: Com base no campo "status" do webhook recebido, são realizadas ações específicas. Por exemplo, se o status for "aprovado", a ação registrada é "Liberar acesso". As ações são armazenadas no banco de dados juntamente com as informações do webhook.
-Exibição das tratativas: Na página protegida, as tratativas (ações) são exibidas para os usuários autenticados. Os webhooks recebidos e as ações realizadas são recuperados do banco de dados e exibidos em uma tabela.
+    The system uses the Flask framework in Python to create a web application. It has the following functionalities:
+    User registration and authentication: The system allows users to register and login using an email address and password. Registration of new users is validated by an access token.
+    Protected page: There is a protected page that can only be accessed by authenticated users. This page displays the dealings (actions) carried out based on the webhooks received.
+    Receiving webhooks: The system has an endpoint ("/webhook") that accepts POST requests containing webhooks in JSON format. Webhooks contain information such as name, email, status, amount, payment method and installments. Webhooks are processed and saved in the database.
+    Handling webhooks: Based on the "status" field of the received webhook, specific actions are performed. For example, if the status is "approved", the action recorded is "Grant access". Actions are stored in the database along with the webhook information.
+    Display of dealings: On the protected page, dealings (actions) are displayed to authenticated users. Incoming webhooks and actions taken are retrieved from the database and displayed in a table.
+    
+## Att, Gabriel Souza
