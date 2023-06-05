@@ -21,4 +21,9 @@
     Handling webhooks: Based on the "status" field of the received webhook, specific actions are performed. For example, if the status is "approved", the action recorded is "Grant access". Actions are stored in the database along with the webhook information.
     Display of dealings: On the protected page, dealings (actions) are displayed to authenticated users. Incoming webhooks and actions taken are retrieved from the database and displayed in a table.
     
+    
+### Deploy:
+    https://api-webhook-tratativas.herokuapp.com/
+    
+    
 ## Att, Gabriel Souza
